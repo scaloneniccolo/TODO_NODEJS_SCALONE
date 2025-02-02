@@ -35,6 +35,5 @@ app.put("/todo/complete", (req, res) => {
     todos.splice(0, todos.length, ...todos.filter((element) => element.id !== req.params.id));
     res.json({result: "Ok"});
  }); 
-
 const server = http.createServer(app);
 server.listen(80, () => console.log("Server running..."));
