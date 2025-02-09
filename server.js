@@ -1,17 +1,17 @@
-const http = require("http");
-const express = require("express");
-const app = express();
-const bodyParser = require('body-parser');
+const http=require("http");
+const express=require("express");
+const app=express();
+const bodyParser=require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
    extended: true
 }));
 const path=require('path');
 app.use("/", express.static(path.join(__dirname, "public")));
-const todos = [];
+const todos=[];
 app.post("/todo/add", (req, res) => {
-   const todo = req.body;
-   todo.id = "" + new Date().getTime();
+   const todo=req.body;
+   todo.id="" + new Date().getTime();
    todos.push(todo);
    res.json({result: "Ok"});
 });
